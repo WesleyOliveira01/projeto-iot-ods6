@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Wesley Alves",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot1",
+      "top": 60,
+      "left": -200,
+      "attrs": { "value": "50" }
+    },
+    {
+      "type": "wokwi-relay",
+      "id": "relay1",
+      "top": 10,
+      "left": 30,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "pot1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot1:SIG", "esp:34", "blue", [ "v0" ] ],
+    [ "relay1:IN", "esp:23", "orange", [ "v0" ] ],
+    [ "relay1:COM", "esp:GND", "black", [ "v0" ] ],
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ]
+  ],
+  "dependencies": {}
+}
